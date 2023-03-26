@@ -1,0 +1,40 @@
+.DivCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 420px;
+    width: 320px;
+    background-color: #ececec ;
+    border: 5px solid #9fd3c7;
+    border-radius: 20px;
+    font-family: cursive;
+}
+
+.img{
+    width: 90%;
+    height: 50%;
+    border: 2px solid black;
+    
+}
+
+.ButtonDiv{
+    display:flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.Button{
+    margin: 5px;
+    width: 30px;
+    border-radius: 0.3em;
+    background-color: red;
+    color:white;  
+}
+
+.TextDiv{
+    display: flex;
+    justify-content:space-around;
+
+    width: 100%;
+    
+}

@@ -1,0 +1,7 @@
+.DivCards {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  justify-content: space-evenly;
+}

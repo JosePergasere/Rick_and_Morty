@@ -1,0 +1,21 @@
+.divSearch{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.buttonSearch{
+    font-family: cursive;
+    border: 0px;
+    border-radius: 0px 15px 15px 0px;
+    background-color: #4aa791;
+    color:black;
+    padding: 10px;
+}
+
+.inputSearch{
+    border: 0px;
+    background-color: #9fd3c7;
+    border-color: #9fd3c7;
+    border-radius: 15px 0px 0px 15px;
+}

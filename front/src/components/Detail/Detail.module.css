@@ -1,0 +1,20 @@
+.containerDetail{
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 420px;
+    width: 320px;
+    
+}
+
+.textDetail{
+
+}
+
+.imgDetail{
+    border: 11px solid black;
+    border-radius: 2em;
+}
