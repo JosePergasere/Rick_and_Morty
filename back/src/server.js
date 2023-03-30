@@ -1,18 +1,15 @@
 require("dotenv").config();
-const http = require("http");
-const getCharById = require("./controllers/getCharById");
-const getCharDetail = require("./controllers/getCharDetail");
+const express = require("express");
+const router = require("./routes/index");
 
-http
-  .createServer((req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    let id = req.url.split("/").at(-1);
+const PORT = process.env.PORT || 3001;
 
-    if (req.url.includes("onsearch")) {
-      getCharById(res, id);
-    }
-    if (req.url.includes("detail")) {
-      getCharDetail(res, id);
-    }
-  })
-  .listen(3001, "localhost");
+const server = express();
+
+server.use(express.json()); //Transforma en un obj la req recibida
+
+server.use("/rickandmorty", router);
+
+server.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
