@@ -8,7 +8,7 @@ const server = express();
 
 server.use(express.json()); //Transforma en un obj la req recibida
 
-server.use("/rickandmorty", router);
+server.use("/", router);
 
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

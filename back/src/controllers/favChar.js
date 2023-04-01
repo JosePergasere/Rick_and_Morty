@@ -1,14 +1,10 @@
 const baseDeDatos = require("../utils/favServer");
 
-const favPostController = (req, res) => {
+const favPostController = (favorito) => {
   // Lo agrego a la base de datos el personaje traido
-  baseDeDatos.push(req.body);
+  baseDeDatos.push(favorito);
   // Envio un mensaje al usuario de que fue agregado correctamente
-  res
-    .status(200)
-    .send(
-      `El personaje ${req.body.name} fue agregado correctamente a la base de datos.`
-    );
+  return favorito;
 };
 
 const favGetController = (req, res) => {

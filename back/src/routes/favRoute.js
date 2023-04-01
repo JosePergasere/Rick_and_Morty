@@ -7,7 +7,16 @@ const {
 
 const favRouter = Router();
 
-favRouter.post("/", favPostController);
+favRouter.post("/", async (req, res) => {
+  const favorito = req.body;
+  try {
+    const favoritoPost = await favPostController(favorito);
+    res.status(200).json({
+      status: "OK Personaje Posteado con exito",
+      favoritoPost,
+    });
+  } catch (error) {}
+});
 
 favRouter.get("/", favGetController);
 

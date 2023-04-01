@@ -22,7 +22,7 @@ function App() {
 
   //! Se encarga de realizar una solicitud HTTP a la API para buscar un personaje por  su ID
   const onSearch = (id) => {
-    const URL_BASE = "http://localhost:3001/rickandmorty";
+    const URL_BASE = "http://localhost:3001";
 
     if (characters.find((char) => char.id === id)) {
       return alert("Personaje repetido");
