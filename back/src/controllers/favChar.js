@@ -1,31 +1,36 @@
 const baseDeDatos = require("../utils/favServer");
 
 const favPostController = (favorito) => {
-  // Lo agrego a la base de datos el personaje traido
-  baseDeDatos.push(favorito);
-  // Envio un mensaje al usuario de que fue agregado correctamente
-  return favorito;
+  const comprobar = baseDeDatos.find((char) => char.id === favorito.id);
+  if (!comprobar) {
+    // Lo agrego a la base de datos el personaje traido
+    baseDeDatos.push(favorito);
+    // Envio un mensaje al usuario de que fue agregado correctamente
+    return favorito;
+  } else {
+    throw new Error(`Personaje con id ${favorito.id} ya existente en el array`);
+  }
 };
 
-const favGetController = (req, res) => {
-  res.status(200).json(baseDeDatos);
+const favGetController = () => {
+  if (baseDeDatos.length) {
+    return baseDeDatos;
+  } else {
+    throw new Error("Lista de favoritos vacia");
+  }
 };
 
-const favDeleteController = (req, res) => {
-  const { id } = req.params;
-
+const favDeleteController = (id) => {
   //Buscamos el índice del personaje que queremos eliminar en el arreglo fav
   const index = baseDeDatos.findIndex((char) => char.id === Number(id));
 
   if (index !== -1) {
     // Si encontramos el personaje, lo eliminamos del arreglo BaseDeDatos
     baseDeDatos.splice(index, 1);
-    res
-      .status(200)
-      .send(`El personaje con id ${id} fue eliminado correctamente.`);
+    return baseDeDatos;
   } else {
     // Si no encontramos el personaje, devolvemos un mensaje de error
-    res.status(404).send(`No se encontró el personaje con id ${id}.`);
+    throw new Error(`No se encontró el personaje con id: ${id}.`);
   }
 };
 

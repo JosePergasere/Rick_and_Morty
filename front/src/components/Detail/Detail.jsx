@@ -1,18 +1,8 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import style from "./Detail.module.css";
+import useCharacter from "../../hooks/useCharacter";
+
 const Detail = () => {
-  const { detailId } = useParams();
-  const [character, setCharacter] = useState({});
-
-  useEffect(() => {
-    const URL_BASE = "http://localhost:3001/rickandmorty";
-    axios(`${URL_BASE}/detail/${detailId}`).then((response) =>
-      setCharacter(response.data)
-    );
-  }, []);
-
+  const character = useCharacter();
   return (
     <div className={style.containerDetail}>
       {character.name ? (

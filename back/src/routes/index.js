@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const router = Router();
-const onsearchRouter = require("./onsearchRoute");
-const detailRouter = require("./detailRoute");
-const favRouter = require("./favRoute");
+const onsearchRouter = require("./onsearch.router");
+const detailRouter = require("./detail.router");
+const favRouter = require("./favs.router");
 
 // ******************* Rutas ********************* //
 router.use("/onsearch", onsearchRouter);

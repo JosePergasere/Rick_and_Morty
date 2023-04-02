@@ -1,4 +1,11 @@
-import { ADD_FAV, DELETE_FAV, FILTER, ORDER } from "./action-types";
+import {
+  ADD_FAV,
+  DELETE_FAV,
+  FILTER,
+  ORDER,
+  GET_CHARACTER_DETAIL,
+  CLEAN_DETAIL,
+} from "./action-types";
 
 //! Crea la accion add_fav
 export const add_fav = (character) => {
@@ -28,4 +35,17 @@ export const orderCards = (id) => {
     type: ORDER,
     payload: id,
   };
+};
+
+export const getCharacterDetail = (id) => {
+  return function (dispatch) {
+    const URL_BASE = "http://localhost:3001";
+    fetch(`${URL_BASE}/detail/${id}`)
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: GET_CHARACTER_DETAIL, payload: data }));
+  };
+};
+
+export const cleanDetail = () => {
+  return { type: CLEAN_DETAIL };
 };
