@@ -48,6 +48,7 @@
   font-family: cursive;
   font-size: 20px;
   color: yellow;
+  border-color: yellow;
   border-radius: 7px;
   background-color: rgba(63, 75, 48, 0.8);
 }

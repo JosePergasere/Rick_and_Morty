@@ -41,6 +41,7 @@ const Form = ({ login }) => {
       <div>
         <label>Username: </label>
         <input
+          className={style.input}
           type="text"
           name="username"
           value={userData.username}
@@ -53,6 +54,7 @@ const Form = ({ login }) => {
       <div>
         <label>Password: </label>
         <input
+          className={style.input}
           type="password"
           name="password"
           value={userData.password}
@@ -62,7 +64,9 @@ const Form = ({ login }) => {
         <p>{errors.password}</p>
       </div>
 
-      <button type="submit">LOGIN</button>
+      <button className={style.button} type="submit">
+        LOGIN
+      </button>
     </form>
   );
 };
