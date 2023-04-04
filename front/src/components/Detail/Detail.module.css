@@ -1,20 +1,34 @@
-.containerDetail{
-    background-color: blueviolet;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    height: 420px;
-    width: 320px;
-    
+.containerDetail {
+  display: flex;
+  flex-direction: column;
+  padding-left: 750px;
+  padding-right: 750px;
 }
 
-.textDetail{
-
+.textDetail {
+  font-family: rickAndmorty;
+  font-size: 30px;
+  color: yellow;
+  background-image: url("../../img/space.jpg");
+  background-size: cover;
+  border-radius: 50px;
 }
 
-.imgDetail{
-    border: 11px solid black;
-    border-radius: 2em;
+.imgDetail {
+  border: 3px solid yellow;
+  border-radius: 2em;
+}
+
+.textDetail:hover {
+  background-image: url("../../img/space1.jpg");
+  -webkit-box-shadow: 36px 31px 86px 30px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 36px 31px 86px 30px rgba(0, 0, 0, 1);
+  box-shadow: 36px 31px 86px 30px rgba(0, 0, 0, 1);
+  color: green;
+  text-shadow: 2px 2px 0 white;
+}
+
+.Loading {
+  font-size: 30px;
+  font-family: cursive;
 }

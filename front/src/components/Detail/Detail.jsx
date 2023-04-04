@@ -8,18 +8,16 @@ const Detail = () => {
       {character.name ? (
         <>
           <div className={style.textDetail}>
-            <h2>{character.name}</h2>
-            <p>{character.status}</p>
-            <p>{character.specie}</p>
-            <p>{character.gender}</p>
-            <p>{character.origin?.name}</p>
-          </div>
-          <div>
+            <h2>Name: {character.name}</h2>
             <img src={character.image} className={style.imgDetail} alt="img" />
+            <p>Status: {character.status}</p>
+            <p>Specie: {character.species}</p>
+            <p>Gender: {character.gender}</p>
+            <p>Origin: {character.origin?.name}</p>
           </div>
         </>
       ) : (
-        <h3>Loading...</h3>
+        <h3 className={style.Loading}>Loading...</h3>
       )}
     </div>
   );

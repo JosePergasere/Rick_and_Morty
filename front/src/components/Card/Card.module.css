@@ -1,40 +1,82 @@
-.DivCard{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 420px;
-    width: 320px;
-    background-color: #ececec ;
-    border: 5px solid #9fd3c7;
-    border-radius: 20px;
-    font-family: cursive;
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap");
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.img{
-    width: 90%;
-    height: 50%;
-    border: 2px solid black;
-    
+.detail {
+  color: blue;
+}
+.DivCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 320px;
+  background-image: url("../../img/descarga.jpg");
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  background-size: cover;
+  border: 3px solid yellow;
+  border-radius: 20px;
+  font-family: rickAndmorty;
+  color: yellow;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-shadow: 5px 5px 0 green;
 }
 
-.ButtonDiv{
-    display:flex;
-    justify-content: flex-end;
-    width: 100%;
+.DivCard:hover {
+  background-image: url("../../img/descarga1.jpg");
+  background-size: cover;
+  -webkit-box-shadow: 36px 31px 86px 30px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 36px 31px 86px 30px rgba(0, 0, 0, 1);
+  box-shadow: 36px 31px 86px 30px rgba(0, 0, 0, 1);
+  color: white;
+  text-shadow: 2px 2px 0 green;
+}
+.img {
+  width: 90%;
+  height: 40%;
+  border: 2px solid yellow;
+  border-radius: 9px;
 }
 
-.Button{
-    margin: 5px;
-    width: 30px;
-    border-radius: 0.3em;
-    background-color: red;
-    color:white;  
+.ButtonDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  width: 100%;
 }
 
-.TextDiv{
-    display: flex;
-    justify-content:space-around;
+.Button {
+  margin: 5px;
+  width: 30px;
+  border-radius: 7px;
+  border: 2px solid black;
+  background-color: #ad2323;
+  color: white;
+  cursor: pointer;
+}
+.Button:hover {
+  background-color: #ff0000;
+  color: black;
+}
 
-    width: 100%;
-    
+.Button:active {
+  background-color: red;
+  box-shadow: 0 2px #black;
+  transform: translateY(4px);
+}
+.TextDiv {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.buttonFav {
+  background-color: black;
+  margin-left: 10px;
 }

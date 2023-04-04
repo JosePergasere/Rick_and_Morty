@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./Favorites.module.css";
 import { Link } from "react-router-dom";
-import { filterCards, orderCards } from "../../redux/actions";
-
+import { filterCards, orderCards, getFavorites } from "../../redux/actions";
+import { useEffect } from "react";
+import Card from "../Card/Card";
 const Favorites = () => {
   const { myFavorites } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -14,17 +15,37 @@ const Favorites = () => {
     dispatch(filterCards(event.target.value));
   };
 
+  useEffect(() => {
+    dispatch(getFavorites());
+  }, []);
+
+  // useEffect(() => {
+  //   if (myFavorites.length === 0) {
+  //     // Verifica si myFavorites está vacía
+  //     return; // Si está vacía, no hace nada y sale del useEffect
+  //   }
+  //   dispatch(getFavorites());
+  // }, [myFavorites, dispatch]);
+
   return (
     <div>
       <div>
-        <select name="orderCards" onChange={handlerOrder}>
+        <select
+          className={style.DivButtons}
+          name="orderCards"
+          onChange={handlerOrder}
+        >
           <option value="order" disabled="disabled">
             Order By
           </option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
         </select>
-        <select name="filterCards" onChange={handlerFilter}>
+        <select
+          className={style.DivButtons}
+          name="filterCards"
+          onChange={handlerFilter}
+        >
           <option value="filter" disabled="disabled">
             Filter By
           </option>
@@ -35,21 +56,34 @@ const Favorites = () => {
           <option value="Unknown">unknown</option>
         </select>
       </div>
-
-      {myFavorites.map((character) => {
-        return (
-          <div className={style.DivCard}>
-            <Link to={`/detail/${character.id}`}>
-              <h2>{character.name}</h2>
-            </Link>
-            <img className={style.img} src={character.image} alt="" />
-            <div className={style.TextDiv}>
-              <h2>{character.species}</h2>
-              <h2>{character.gender}</h2>
+      <div className={style.divFav}>
+        {myFavorites.map(({ id, name, species, gender, image }) => {
+          return (
+            <Card
+              key={id}
+              id={id}
+              name={name}
+              species={species}
+              gender={gender}
+              image={image}
+            />
+          );
+        })}
+        {/* {myFavorites.map((character) => {
+          return (
+            <div className={style.DivCard} key={character.id}>
+              <Link to={`/detail/${character.id}`}>
+                <h2>{character.name}</h2>
+              </Link>
+              <img className={style.img} src={character.image} alt="" />
+              <div className={style.TextDiv}>
+                <h2>{character.species}</h2>
+                <h2>{character.gender}</h2>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })} */}
+      </div>
     </div>
   );
 };

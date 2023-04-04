@@ -28,7 +28,7 @@ function App() {
       return alert("Personaje repetido");
     }
 
-    fetch(`${URL_BASE}/onsearch/${id}`)
+    fetch(`${URL_BASE}/rickandmorty/onsearch/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {

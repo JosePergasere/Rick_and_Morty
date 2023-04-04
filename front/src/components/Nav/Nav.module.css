@@ -1,46 +1,52 @@
-.Nav{
-    display: flex;
-    padding: 10px;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 5em;
-    margin-right: 5em;
-    width: auto;
-    border: 2px solid#385170;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #283739 ;
-    border-radius: 2em;
-    
-    
+.Nav {
+  display: flex;
+  padding: 10px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 5em;
+  margin-right: 5em;
+  width: auto;
+  border: 2px solid yellow;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(63, 75, 48, 0.8);
+  border-radius: 2em;
 }
 
-.buttonFav{
-    font-family: serif;
-    font-size: 20px;
-    font-style: italic;
-    font-weight: 800;
-    margin:1em;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: #9fd3c7;
-}
-
-.buttonFav:hover{
-  background-color: red;
-}
-
-.h3{
-  color: green;
-  border: 2px solid black;
+.buttonFav {
+  color: yellow;
+  font-family: serif;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 800;
+  height: 60px;
+  margin: 1em;
+  padding: 5px;
+  border: 2px solid yellow;
   border-radius: 10px;
-  padding: 7px;
-  background-color: #9fd3c7;
+  background-color: rgba(63, 75, 48, 0.8);
 }
-  /* background-color: #283739;
 
+.buttonFav:active {
+  background-color: red;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
-flex-direction: row;
-justify-content: center;
-width: auto;
-height: 100px;  */
+.h3 {
+  font-family: "Tilt Warp", cursive;
+  height: 40px;
+  color: yellow;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  background-color: rgba(63, 75, 48, 0.8);
+}
+
+.h3:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

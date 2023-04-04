@@ -10,7 +10,7 @@ const server = express();
 server.use(express.json()); //Transforma en un obj la req recibida
 server.use(cors());
 
-server.use("/", router);
+server.use("/rickandmorty", router);
 
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

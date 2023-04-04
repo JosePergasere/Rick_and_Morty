@@ -1,25 +1,39 @@
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
-import { add_fav, delete_fav } from "../../redux/actions";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { getFavorites } from "../../redux/actions";
+// import getFavorites from "../../redux/actions";
 
 const Card = ({ id, name, gender, species, image, onClose }) => {
   const [isFav, setIsFav] = useState(false); //estado local Fav
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
-   
+
+  const add_fav = (character) => {
+    axios
+      .post("http://localhost:3001/rickandmorty/fav", character)
+      .then((res) => console.log("ok"));
+  };
+
+  const delete_fav = async (id) => {
+    await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`);
+    dispatch(getFavorites());
+    alert("Eliminado con exito");
+  };
   const handleFavorite = () => {
     //Funcion HandleFavorite
     if (isFav) {
       //Setea en false el estado, despacha la funcion Delete_fav pansandole el id del personaje
       setIsFav(false);
-      dispatch(delete_fav(id));
+      delete_fav(id);
     } else {
       setIsFav(true); //Setea en false el estado, despacha la funcion add_fav pansandole el id del personaje
-      dispatch(add_fav({ id, name, gender, species, image, onClose }));
+      add_fav({ id, name, gender, species, image, onClose });
     }
   };
+
   useEffect(() => {
     myFavorites.forEach((fav) => {
       if (fav.id === id) {
@@ -32,9 +46,13 @@ const Card = ({ id, name, gender, species, image, onClose }) => {
     <div className={style.DivCard}>
       <div className={style.ButtonDiv}>
         {isFav ? (
-          <button onClick={handleFavorite}>❤️</button>
+          <button onClick={handleFavorite} className={style.buttonFav}>
+            ❤️
+          </button>
         ) : (
-          <button onClick={handleFavorite}>🤍</button>
+          <button onClick={handleFavorite} className={style.buttonFav}>
+            🤍
+          </button>
         )}
         <button className={style.Button} onClick={() => onClose(id)}>
           X
@@ -91,6 +109,9 @@ export default Card;
 
 // const [isFav, setIsFav] = useState(false);
 
+// const add_fav = () =>{
+// axios.post("http://localhost:3001/rickandmorty/fav",character)
+//};
 // const handleFavorite = () => {
 //    if (isFav) {
 //       setIsFav(false)
@@ -104,9 +125,7 @@ export default Card;
 
 // const mapDispatchToProps = (dispatch) => {
 //    return {
-//       add_fav: (character) => {
-//          dispatch(add_fav(character));
-//       },
+//
 //       delete_fav: (id) => {
 //          dispatch(delete_fav(id));
 //       },

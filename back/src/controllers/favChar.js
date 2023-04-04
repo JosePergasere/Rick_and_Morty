@@ -1,4 +1,4 @@
-const baseDeDatos = require("../utils/favServer");
+let baseDeDatos = require("../utils/favServer");
 
 const favPostController = (favorito) => {
   const comprobar = baseDeDatos.find((char) => char.id === favorito.id);
@@ -22,16 +22,18 @@ const favGetController = () => {
 
 const favDeleteController = (id) => {
   //Buscamos el índice del personaje que queremos eliminar en el arreglo fav
-  const index = baseDeDatos.findIndex((char) => char.id === Number(id));
-
-  if (index !== -1) {
-    // Si encontramos el personaje, lo eliminamos del arreglo BaseDeDatos
-    baseDeDatos.splice(index, 1);
-    return baseDeDatos;
-  } else {
-    // Si no encontramos el personaje, devolvemos un mensaje de error
-    throw new Error(`No se encontró el personaje con id: ${id}.`);
-  }
+  baseDeDatos = baseDeDatos.filter((char) => char.id != id);
+  return baseDeDatos;
+  // const index = baseDeDatos.findIndex((char) => char.id === Number(id));
+  // console.log(id);
+  // if (index !== -1) {
+  //   // Si encontramos el personaje, lo eliminamos del arreglo BaseDeDatos
+  //   baseDeDatos.splice(index, 1);
+  //   return baseDeDatos;
+  // } else {
+  //   // Si no encontramos el personaje, devolvemos un mensaje de error
+  //   throw new Error(`No se encontró el personaje con id: ${id}.`);
+  // }
 };
 
 module.exports = { favPostController, favGetController, favDeleteController };

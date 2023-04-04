@@ -5,6 +5,7 @@ import {
   FILTER,
   GET_CHARACTER_DETAIL,
   CLEAN_DETAIL,
+  GET_FAVORITES,
 } from "./action-types";
 
 //! Inicializar el Estado Global
@@ -70,6 +71,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         characterDetail: {},
+      };
+
+    case GET_FAVORITES:
+      return {
+        ...state,
+        myFavorites: action.payload,
+        allCharacters: state.myFavorites,
       };
     default:
       return { ...state };
