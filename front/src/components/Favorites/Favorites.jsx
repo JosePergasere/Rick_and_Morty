@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./Favorites.module.css";
-import { Link } from "react-router-dom";
 import { filterCards, orderCards, getFavorites } from "../../redux/actions";
 import { useEffect } from "react";
 import Card from "../Card/Card";
@@ -18,14 +17,6 @@ const Favorites = () => {
   useEffect(() => {
     dispatch(getFavorites());
   }, []);
-
-  // useEffect(() => {
-  //   if (myFavorites.length === 0) {
-  //     // Verifica si myFavorites está vacía
-  //     return; // Si está vacía, no hace nada y sale del useEffect
-  //   }
-  //   dispatch(getFavorites());
-  // }, [myFavorites, dispatch]);
 
   return (
     <div>

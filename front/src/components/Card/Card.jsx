@@ -22,6 +22,7 @@ const Card = ({ id, name, gender, species, image, onClose }) => {
     dispatch(getFavorites());
     alert("Eliminado con exito");
   };
+
   const handleFavorite = () => {
     //Funcion HandleFavorite
     if (isFav) {

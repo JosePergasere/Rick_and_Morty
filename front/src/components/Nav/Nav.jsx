@@ -9,7 +9,7 @@ export default function ({ onSearch }) {
         <h3 className={style.h3}>HOME</h3>
       </Link>
       <Link to="/about">
-        <h3 className={style.h3}>ABOUT</h3>
+        <h3 className={style.h3}>📜 ABOUT 📗</h3>
       </Link>
       <Link to="/favorites">
         <button className={style.buttonFav}>❤️ Favoritos ❤️</button>

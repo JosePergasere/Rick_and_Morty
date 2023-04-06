@@ -1,9 +1,6 @@
-require("dotenv").config();
 const express = require("express");
 const router = require("./routes/index");
 const cors = require("cors");
-
-const PORT = process.env.PORT || 3001;
 
 const server = express();
 
@@ -12,6 +9,4 @@ server.use(cors());
 
 server.use("/rickandmorty", router);
 
-server.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
-});
+module.exports = server;

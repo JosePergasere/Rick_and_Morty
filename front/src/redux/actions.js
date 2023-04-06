@@ -1,29 +1,11 @@
 import axios from "axios";
 import {
-  ADD_FAV,
-  DELETE_FAV,
   FILTER,
   ORDER,
   GET_CHARACTER_DETAIL,
   CLEAN_DETAIL,
   GET_FAVORITES,
 } from "./action-types";
-
-//! Crea la accion add_fav
-export const add_fav = (character) => {
-  return {
-    type: ADD_FAV,
-    payload: character,
-  };
-};
-
-//! Crea la accion delete_fav
-export const delete_fav = (id) => {
-  return {
-    type: DELETE_FAV,
-    payload: id,
-  };
-};
 
 export const filterCards = (gender) => {
   return {
