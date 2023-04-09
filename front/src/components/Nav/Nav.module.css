@@ -50,3 +50,8 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+.img {
+  height: 100px;
+  width: 300px;
+}

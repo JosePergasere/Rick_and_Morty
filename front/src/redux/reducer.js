@@ -29,6 +29,7 @@ const rootReducer = (state = initialState, action) => {
           myFavorites: myFavoritesAux,
         };
       }
+
       return {
         ...state,
         myFavorites: [...allCharacters],
